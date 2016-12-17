@@ -1,0 +1,47 @@
+{
+    "name": "hgraca/data-source-client",
+    "license": "MIT",
+    "type": "library",
+    "description": "A PHP data source client",
+    "authors": [
+        {
+            "name": "Herberto Graça",
+            "email": "herberto.graca@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Hgraca\\DataSourceClient\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Hgraca\\DataSourceClient\\Test\\": "tests/"
+        }
+    },
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.0",
+        "humbug/humbug": "^1.0@alpha",
+        "phpunit/phpunit": "~5",
+        "phpunit/php-code-coverage": "~3",
+        "roave/security-advisories": "dev-master"
+    },
+    "suggest": {
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "scripts": {
+        "post-install-cmd": [],
+        "post-update-cmd": [],
+        "post-create-project-cmd": []
+    }
+}
