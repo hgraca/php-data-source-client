@@ -16,12 +16,38 @@ A PHP DBAL client
 ## Usage
 
 **TODO**: A short explanation of how to use the project. This should explain **how** the project is usable.
+After installing this in your project, as specified below, you can easily use the CRUD client, ie:
+
+```php
+$crudClient = new CrudClient(new PdoClient(new PDO($dsn)), new SqlQueryBuilder());
+
+// public function create(string $table, array $data);
+$crudClient->create('Employees', ['EmployeeID' => '1', 'Name' => 'Maria]);
+
+// public function read(string $table, array $filter = [], array $orderBy = [], int $limit = 30, int $offset = 1): array;
+$crudClient->read('Employees', ['EmployeeID' => '1']);
+$crudClient->read('Employees', ['EmployeeID' => ['1', '2', '3']]);
+
+// public function update(string $table, array $data, array $filter = []);
+$crudClient->update('Employees', ['Name' => 'Josefina], ['EmployeeID' => '1']);
+
+// public function delete(string $table, array $filter = []);
+$crudClient->delete('Employees', ['EmployeeID' => '1']);
+```
+Or the raw client, ie:
+
+```php
+$rawClient = new PdoClient(new PDO($dsn);
+
+$this->client->executeQuery($sql, $bindingsList);
+$this->client->executeCommand($sql, $bindingsList);
+```
 
 ## Installation
 
 To install the library, run the command below and you will get the latest version:
 
-```
+```bash
 composer require hgraca/micro-dbal
 ```
 
