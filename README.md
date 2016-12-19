@@ -39,8 +39,8 @@ Or the raw client, ie:
 ```php
 $rawClient = new PdoClient(new PDO($dsn);
 
-$this->client->executeQuery($sql, $bindingsList);
-$this->client->executeCommand($sql, $bindingsList);
+$rawClient->executeQuery($sql, $bindingsList);
+$rawClient->executeCommand($sql, $bindingsList);
 ```
 
 ## Installation
