@@ -1,14 +1,14 @@
-# Hgraca\DataSourceClient
+# Hgraca\MicroDbal
 [![Author](http://img.shields.io/badge/author-@hgraca-blue.svg?style=flat-square)](https://www.herbertograca.com)
 [![Software License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
-[![Latest Version](https://img.shields.io/github/release/hgraca/php-data-source-client.svg?style=flat-square)](https://github.com/hgraca/php-data-source-client/releases)
-[![Total Downloads](https://img.shields.io/packagist/dt/hgraca/data-source-client.svg?style=flat-square)](https://packagist.org/packages/hgraca/data-source-client)
+[![Latest Version](https://img.shields.io/github/release/hgraca/php-micro-dbal.svg?style=flat-square)](https://github.com/hgraca/php-micro-dbal/releases)
+[![Total Downloads](https://img.shields.io/packagist/dt/hgraca/micro-dbal.svg?style=flat-square)](https://packagist.org/packages/hgraca/micro-dbal)
 
-[![Build Status](https://img.shields.io/scrutinizer/build/g/hgraca/php-data-source-client.svg?style=flat-square)](https://scrutinizer-ci.com/g/hgraca/php-data-source-client/build)
-[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/hgraca/php-data-source-client.svg?style=flat-square)](https://scrutinizer-ci.com/g/hgraca/php-data-source-client/code-structure)
-[![Quality Score](https://img.shields.io/scrutinizer/g/hgraca/php-data-source-client.svg?style=flat-square)](https://scrutinizer-ci.com/g/hgraca/php-data-source-client)
+[![Build Status](https://img.shields.io/scrutinizer/build/g/hgraca/php-micro-dbal.svg?style=flat-square)](https://scrutinizer-ci.com/g/hgraca/php-micro-dbal/build)
+[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/hgraca/php-micro-dbal.svg?style=flat-square)](https://scrutinizer-ci.com/g/hgraca/php-micro-dbal/code-structure)
+[![Quality Score](https://img.shields.io/scrutinizer/g/hgraca/php-micro-dbal.svg?style=flat-square)](https://scrutinizer-ci.com/g/hgraca/php-micro-dbal)
 
-A PHP data source client
+A PHP DBAL client
 
 **TODO**: A short description of what is the project. This should explain **what** the project is.
 **TODO**: A short description of the motivation behind the creation and maintenance of the project. This should explain **why** the project exists.
@@ -22,7 +22,7 @@ A PHP data source client
 To install the library, run the command below and you will get the latest version:
 
 ```
-composer require hgraca/data-source-client
+composer require hgraca/micro-dbal
 ```
 
 ## Tests
@@ -59,3 +59,6 @@ make cs-fix
 ```
 
 ## Todo
+
+- Implement [nested transactions management](http://php.net/manual/en/pdo.begintransaction.php#116669)
+- Implement batch update

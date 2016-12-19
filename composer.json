@@ -1,8 +1,8 @@
 {
-    "name": "hgraca/data-source-client",
+    "name": "hgraca/micro-dbal",
     "license": "MIT",
     "type": "library",
-    "description": "A PHP data source client",
+    "description": "A PHP lightweight DBAL client",
     "authors": [
         {
             "name": "Herberto Graça",
@@ -11,12 +11,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "Hgraca\\DataSourceClient\\": "src/"
+            "Hgraca\\MicroDbal\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Hgraca\\DataSourceClient\\Test\\": "tests/"
+            "Hgraca\\MicroDbal\\Test\\": "tests/"
         }
     },
     "require": {

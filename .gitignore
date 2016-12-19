@@ -1,6 +1,7 @@
 # Project #
 ############
 bin
+/var
 /.php_cs.cache
 
 # Tests #

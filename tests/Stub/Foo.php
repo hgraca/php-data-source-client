@@ -1,6 +1,6 @@
 <?php
 
-namespace Hgraca\DataSourceClient\Test\Stub;
+namespace Hgraca\MicroDbal\Test\Stub;
 
 final class Foo
 {

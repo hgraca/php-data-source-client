@@ -1,6 +1,6 @@
 <?php
 
-namespace Hgraca\DataSourceClient\Exception;
+namespace Hgraca\MicroDbal\Raw\Exception;
 
 use Exception;
 

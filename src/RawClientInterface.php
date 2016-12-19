@@ -1,8 +1,8 @@
 <?php
 
-namespace Hgraca\DataSourceClient;
+namespace Hgraca\MicroDbal;
 
-interface ClientInterface
+interface RawClientInterface
 {
     /**
      * Executes a query for data.

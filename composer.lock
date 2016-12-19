@@ -9,16 +9,16 @@
     "packages": [
         {
             "name": "hgraca/helper",
-            "version": "1.3.0",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hgraca/php-helper.git",
-                "reference": "f505e3492bc3dc5b55c31d09354135148eaced0b"
+                "reference": "62b965b76d9116258142911ac7e154411df6009b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hgraca/php-helper/zipball/f505e3492bc3dc5b55c31d09354135148eaced0b",
-                "reference": "f505e3492bc3dc5b55c31d09354135148eaced0b",
+                "url": "https://api.github.com/repos/hgraca/php-helper/zipball/62b965b76d9116258142911ac7e154411df6009b",
+                "reference": "62b965b76d9116258142911ac7e154411df6009b",
                 "shasum": ""
             },
             "require": {
@@ -51,7 +51,7 @@
                 }
             ],
             "description": "A generic PHP lib with static classes full of handy functional methods.",
-            "time": "2016-12-13 20:20:40"
+            "time": "2016-12-18 19:20:45"
         }
     ],
     "packages-dev": [

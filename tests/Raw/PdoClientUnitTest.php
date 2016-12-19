@@ -1,9 +1,9 @@
 <?php
 
-namespace Hgraca\DataSourceClient\Test\Pdo;
+namespace Hgraca\MicroDbal\Test\Raw;
 
-use Hgraca\DataSourceClient\Pdo\PdoClient;
-use Hgraca\DataSourceClient\Test\Stub\Foo;
+use Hgraca\MicroDbal\Raw\PdoClient;
+use Hgraca\MicroDbal\Test\Stub\Foo;
 use Mockery;
 use Mockery\MockInterface;
 use PDO;
@@ -44,7 +44,7 @@ final class PdoClientUnitTest extends PHPUnit_Framework_TestCase
         $this->pdo->shouldReceive('prepare')->once()->with($sql)->andReturn($pdoStatementMock);
         $pdoStatementMock->shouldReceive('bindValue')
             ->once()
-            ->with(':trueVal', $parameterList['trueVal'], PDO::PARAM_BOOL)
+            ->with('trueVal', $parameterList['trueVal'], PDO::PARAM_BOOL)
             ->andReturn(true);
 
         $pdoStatementMock->shouldReceive('execute')->once()->andReturn(true);
@@ -63,7 +63,7 @@ final class PdoClientUnitTest extends PHPUnit_Framework_TestCase
      *
      * @small
      *
-     * @expectedException \Hgraca\DataSourceClient\Exception\BindingException
+     * @expectedException \Hgraca\MicroDbal\Raw\Exception\BindingException
      */
     public function executeQuery_ShouldThrowExceptionIfCantBind()
     {
@@ -76,7 +76,7 @@ final class PdoClientUnitTest extends PHPUnit_Framework_TestCase
         $this->pdo->shouldReceive('prepare')->once()->with($sql)->andReturn($pdoStatementMock);
         $pdoStatementMock->shouldReceive('bindValue')
             ->once()
-            ->with(':trueVal', $parameterList['trueVal'], PDO::PARAM_BOOL)
+            ->with('trueVal', $parameterList['trueVal'], PDO::PARAM_BOOL)
             ->andReturn(false);
 
         $pdoStatementMock->shouldReceive('execute')->once()->andReturn(false);
@@ -91,7 +91,7 @@ final class PdoClientUnitTest extends PHPUnit_Framework_TestCase
      *
      * @small
      *
-     * @expectedException \Hgraca\DataSourceClient\Exception\ExecutionException
+     * @expectedException \Hgraca\MicroDbal\Raw\Exception\ExecutionException
      */
     public function executeQuery_ShouldThrowExceptionIfCantExecute()
     {
@@ -104,7 +104,7 @@ final class PdoClientUnitTest extends PHPUnit_Framework_TestCase
         $this->pdo->shouldReceive('prepare')->once()->with($sql)->andReturn($pdoStatementMock);
         $pdoStatementMock->shouldReceive('bindValue')
             ->once()
-            ->with(':trueVal', $parameterList['trueVal'], PDO::PARAM_BOOL)
+            ->with('trueVal', $parameterList['trueVal'], PDO::PARAM_BOOL)
             ->andReturn(true);
 
         $pdoStatementMock->shouldReceive('execute')->once()->andReturn(false);
@@ -137,23 +137,23 @@ final class PdoClientUnitTest extends PHPUnit_Framework_TestCase
 
         $pdoStatementMock->shouldReceive('bindValue')
             ->once()
-            ->with(':trueVal', $parameterList['trueVal'], PDO::PARAM_BOOL)
+            ->with('trueVal', $parameterList['trueVal'], PDO::PARAM_BOOL)
             ->andReturn(true);
         $pdoStatementMock->shouldReceive('bindValue')
             ->once()
-            ->with(':stringVal', $parameterList['stringVal'], PDO::PARAM_STR)
+            ->with('stringVal', $parameterList['stringVal'], PDO::PARAM_STR)
             ->andReturn(true);
         $pdoStatementMock->shouldReceive('bindValue')
             ->once()
-            ->with(':intVal', $parameterList['intVal'], PDO::PARAM_INT)
+            ->with('intVal', $parameterList['intVal'], PDO::PARAM_INT)
             ->andReturn(true);
         $pdoStatementMock->shouldReceive('bindValue')
             ->once()
-            ->with(':floatVal', strval($parameterList['floatVal']), PDO::PARAM_STR)
+            ->with('floatVal', strval($parameterList['floatVal']), PDO::PARAM_STR)
             ->andReturn(true);
         $pdoStatementMock->shouldReceive('bindValue')
             ->once()
-            ->with(':nullVal', $parameterList['nullVal'], PDO::PARAM_NULL)
+            ->with('nullVal', $parameterList['nullVal'], PDO::PARAM_NULL)
             ->andReturn(true);
         $pdoStatementMock->shouldReceive('execute')->once()->andReturn(true);
 
@@ -165,7 +165,7 @@ final class PdoClientUnitTest extends PHPUnit_Framework_TestCase
      *
      * @small
      *
-     * @expectedException \Hgraca\DataSourceClient\Exception\BindingException
+     * @expectedException \Hgraca\MicroDbal\Raw\Exception\BindingException
      */
     public function executeCommand_ShouldThrowExceptionIfCantBind()
     {
@@ -181,7 +181,7 @@ final class PdoClientUnitTest extends PHPUnit_Framework_TestCase
 
         $pdoStatementMock->shouldReceive('bindValue')
             ->once()
-            ->with(':trueVal', $filterList['trueVal'], PDO::PARAM_BOOL)
+            ->with('trueVal', $filterList['trueVal'], PDO::PARAM_BOOL)
             ->andReturn(false);
 
         $this->client->executeCommand($sql, $filterList);
@@ -192,11 +192,11 @@ final class PdoClientUnitTest extends PHPUnit_Framework_TestCase
      *
      * @small
      *
-     * @expectedException \Hgraca\DataSourceClient\Exception\ExecutionException
+     * @expectedException \Hgraca\MicroDbal\Raw\Exception\ExecutionException
      *
-     * @covers \Hgraca\DataSourceClient\Pdo\PdoClient::__construct
-     * @covers \Hgraca\DataSourceClient\Pdo\PdoClient::executeCommand
-     * @covers \Hgraca\DataSourceClient\Pdo\PdoClient::execute
+     * @covers \Hgraca\MicroDbal\Raw\PdoClient::__construct
+     * @covers \Hgraca\MicroDbal\Raw\PdoClient::executeCommand
+     * @covers \Hgraca\MicroDbal\Raw\PdoClient::execute
      */
     public function executeCommand_ShouldThrowExceptionIfCantExecute()
     {
@@ -212,7 +212,7 @@ final class PdoClientUnitTest extends PHPUnit_Framework_TestCase
 
         $pdoStatementMock->shouldReceive('bindValue')
             ->once()
-            ->with(':trueVal', $parameterList['trueVal'], PDO::PARAM_BOOL)
+            ->with('trueVal', $parameterList['trueVal'], PDO::PARAM_BOOL)
             ->andReturn(true);
         $pdoStatementMock->shouldReceive('execute')->once()->andReturn(false);
         $pdoStatementMock->shouldReceive('errorCode')->once()->andReturn('123');
@@ -226,7 +226,7 @@ final class PdoClientUnitTest extends PHPUnit_Framework_TestCase
      *
      * @small
      *
-     * @expectedException \Hgraca\DataSourceClient\Exception\TypeResolutionException
+     * @expectedException \Hgraca\MicroDbal\Raw\Exception\TypeResolutionException
      */
     public function executeCommand_ShouldThrowExceptionIfCantResolvePdoType()
     {

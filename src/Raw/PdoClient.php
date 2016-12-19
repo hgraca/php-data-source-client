@@ -1,17 +1,17 @@
 <?php
 
-namespace Hgraca\DataSourceClient\Pdo;
+namespace Hgraca\MicroDbal\Raw;
 
 use Exception;
 use Hgraca\Helper\ArrayHelper;
-use Hgraca\DataSourceClient\ClientInterface;
-use Hgraca\DataSourceClient\Exception\BindingException;
-use Hgraca\DataSourceClient\Exception\ExecutionException;
-use Hgraca\DataSourceClient\Exception\TypeResolutionException;
+use Hgraca\MicroDbal\Raw\Exception\BindingException;
+use Hgraca\MicroDbal\Raw\Exception\ExecutionException;
+use Hgraca\MicroDbal\Raw\Exception\TypeResolutionException;
+use Hgraca\MicroDbal\RawClientInterface;
 use PDO;
 use PDOStatement;
 
-final class PdoClient implements ClientInterface
+final class PdoClient implements RawClientInterface
 {
     /** @var PDO */
     private $pdo;
@@ -79,7 +79,7 @@ final class PdoClient implements ClientInterface
     {
         $pdoType = $this->resolvePdoType($value);
         $bound = $stmt->bindValue(
-            ':' . $name,
+            $name,
             $pdoType === PDO::PARAM_STR ? strval($value) : $value,
             $pdoType
         );
@@ -101,17 +101,17 @@ final class PdoClient implements ClientInterface
         $type = gettype($value);
         switch ($type) {
             case 'boolean':
-                $pdoType = PDO::PARAM_BOOL;
+                $pdoType = PDO::PARAM_BOOL; // 5
                 break;
             case 'string':
             case 'double': // float
-                $pdoType = PDO::PARAM_STR;
+                $pdoType = PDO::PARAM_STR; // 2
                 break;
             case 'integer':
-                $pdoType = PDO::PARAM_INT;
+                $pdoType = PDO::PARAM_INT; // 1
                 break;
             case 'NULL':
-                $pdoType = PDO::PARAM_NULL;
+                $pdoType = PDO::PARAM_NULL; // 0
                 break;
             case 'object':
                 $class = get_class($value);
