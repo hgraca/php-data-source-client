@@ -33,7 +33,7 @@ final class CrudClient implements CrudClientInterface
         string $table,
         array $filter = [],
         array $orderBy = [],
-        int $limit = 30,
+        int $limit = null,
         int $offset = 1
     ): array {
         list($queryString, $filterBindingsList) = $this->crudQueryBuilder

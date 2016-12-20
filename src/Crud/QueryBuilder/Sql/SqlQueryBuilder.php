@@ -27,7 +27,7 @@ final class SqlQueryBuilder implements CrudQueryBuilderInterface
         string $table,
         array $filter = [],
         array $orderBy = [],
-        int $limit = 30,
+        int $limit = null,
         int $offset = 1
     ): array {
         $sqlSelect = "SELECT * FROM `$table`";

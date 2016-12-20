@@ -6,7 +6,7 @@ interface CrudClientInterface
 {
     public function create(string $table, array $data);
 
-    public function read(string $table, array $filter = [], array $orderBy = [], int $limit = 30, int $offset = 1): array;
+    public function read(string $table, array $filter = [], array $orderBy = [], int $limit = null, int $offset = 1): array;
 
     public function update(string $table, array $data, array $filter = []);
 
